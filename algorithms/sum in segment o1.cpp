@@ -1,5 +1,6 @@
 
 // http://nure.dots.org.ua/problems?id=2131
+// without changes
 
 #include <iostream> 
 #include <fstream> 
