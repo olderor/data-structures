@@ -1,5 +1,6 @@
 
 // http://codeforces.com/problemset/problem/538/F
+// https://contest.yandex.ru/contest/3206/problems/E/
 
 #include <iostream> 
 #include <fstream> 
