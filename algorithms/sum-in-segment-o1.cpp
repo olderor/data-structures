@@ -1,3 +1,6 @@
+
+// http://nure.dots.org.ua/problems?id=2131
+
 #include <iostream> 
 #include <fstream> 
 #include <vector> 
