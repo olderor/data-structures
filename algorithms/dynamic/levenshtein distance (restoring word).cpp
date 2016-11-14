@@ -1,3 +1,6 @@
+
+// https://contest.yandex.ru/contest/2923/problems/B/
+
 #include <iostream>
 #include <fstream>
 #include <algorithm>
