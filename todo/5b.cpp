@@ -1,3 +1,5 @@
+// https://contest.yandex.ru/contest/4157/
+
 // Copyright 2017 olderor (Yevchenko Bohdan)
 
 #include <iostream>
