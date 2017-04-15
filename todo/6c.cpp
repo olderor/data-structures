@@ -123,6 +123,7 @@ bool time_cmp(timing *first, timing *second) {
 int main() {
     int vertices_count;
     scanf("%d %lld", &vertices_count, &speed);
+
     std::vector<timing*> timings(vertices_count);
 
     int hours, minutes, coord_x, coord_y;
