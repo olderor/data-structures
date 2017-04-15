@@ -98,22 +98,20 @@ const int solver::get_connections_count() const {
     return connections_count;
 }
 
-long long speed;
+long double speed;
 
 struct timing {
-    long long minutes;
-    long long coord_x;
-    long long coord_y;
+    long double minutes;
+    long double coord_x;
+    long double coord_y;
 };
 
 bool check(timing *first, timing *second) {
-    long long dist = (first->coord_x - second->coord_x) * (first->coord_x - second->coord_x) +
+    long double dist = (first->coord_x - second->coord_x) * (first->coord_x - second->coord_x) +
         (first->coord_y - second->coord_y) * (first->coord_y - second->coord_y);
-    long long time_dif = first->minutes - second->minutes;
-    if (time_dif < 0) {
-        time_dif = -time_dif;
-    }
-    return dist * 60 * 60 <= speed * speed * time_dif * time_dif;
+    dist = sqrt(dist);
+    long double time_dif = first->minutes - second->minutes;
+    return dist * 60 <= speed * time_dif;
 }
 
 bool time_cmp(timing *first, timing *second) {
@@ -121,9 +119,9 @@ bool time_cmp(timing *first, timing *second) {
 }
 
 int main() {
-    int vertices_count;
-    scanf("%d %lld", &vertices_count, &speed);
-
+    int vertices_count, spd;
+    scanf("%d %d", &vertices_count, &spd);
+    speed += spd;
     std::vector<timing*> timings(vertices_count);
 
     int hours, minutes, coord_x, coord_y;
@@ -131,9 +129,9 @@ int main() {
         timings[first_index] = new timing();
         scanf("%d:%d %d %d", &hours, &minutes, &coord_x, &coord_y);
 
-        timings[first_index]->minutes = hours * 60 + minutes;
-        timings[first_index]->coord_x = coord_x;
-        timings[first_index]->coord_y = coord_y;
+        timings[first_index]->minutes += hours * 60 + minutes;
+        timings[first_index]->coord_x += coord_x;
+        timings[first_index]->coord_y += coord_y;
     }
 
     sort(timings.begin(), timings.end(), time_cmp);
@@ -152,6 +150,6 @@ int main() {
 
     int matching_size = sv.get_matching();
 
-    printf("%d\n", matching_size + vertices_count - matching_size * 2);
+    printf("%d\n", vertices_count - matching_size);
     return 0;
 }
