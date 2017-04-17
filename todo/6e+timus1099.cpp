@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+#pragma warning(disable:4996)
+
 int vertices_count;
 int matching_size;
 int vertices[500];
@@ -195,14 +197,10 @@ void improve_matching() {
 }
 
 int main() {
-    std::cin.sync_with_stdio(0);
-    std::cin.tie(0);
-
-    std::cin >> vertices_count;
+    scanf("%d", &vertices_count);
 
     int first, second;
-    while (std::cin >> first) {
-        std::cin >> second;
+    while (scanf("%d%d", &first, &second) == 2) {
         graph[first - 1].push_back(second - 1);
         graph[second - 1].push_back(first - 1);
     }
@@ -216,12 +214,13 @@ int main() {
     set_random_matching();
     improve_matching();
 
-    std::cout << matching_size * 2 << "\n";
+    printf("%d\n", matching_size);
+    /*
     for (int i = 0; i < vertices_count; ++i) {
         if (matching[i] > i) {
-            std::cout << i + 1 << " " << matching[i] + 1 << "\n";
+            printf("%d %d\n", i + 1, matching[i] + 1);
         }
     }
-
+    */
     return 0;
 }
