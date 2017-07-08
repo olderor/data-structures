@@ -1,3 +1,13 @@
+// http://acm.timus.ru/problem.aspx?space=1&num=2040
+
+//
+//  main.cpp
+//  advanced-palindrome2
+//
+//  Created by olderor on 20.06.17.
+//  Copyright © 2017 Bohdan Yevchenko. All rights reserved.
+//
+
 #include <iostream>
 #include <vector>
 #include <string>
