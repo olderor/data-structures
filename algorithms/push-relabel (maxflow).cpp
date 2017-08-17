@@ -156,6 +156,19 @@ int main() {
     for (int i = 0; i < edges_count; ++i) {
         printf("%d\n", edges[i]->flow);
     }
+    
+    /*
+    min cut
+    for (int i = 1; i < vertices_count - 1; ++i) {
+        if (height[i] >= height[0]) {
+            answer.push_back(i);
+        }
+    }
+    std::cout << answer.size() << '\n';
+    for (int i = 0; i < answer.size(); ++i) {
+        std::cout << answer[i] << '\n';
+    }
+    */
 
     return 0;
 }
